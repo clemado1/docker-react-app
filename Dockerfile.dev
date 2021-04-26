@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+# dependencies cache
+COPY package.json ./
+
+# install dependencies
+RUN npm install
+
+COPY ./ ./
+
+# 실행
+CMD ["npm", "run", "start"]
+
+# docker run -f Dockerfile.dev ./
